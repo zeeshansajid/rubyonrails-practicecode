@@ -1,0 +1,32 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+<h1>Your Pragmatic Catalog</h1>
+
+<% @products.each do |product| %>
+  <div class="entry">
+    <%= image_tag(product.image_url) %>
+    <h3><%= product.title %></h3>
+    <%= sanitize(product.description) %>
+    <div class="price_line">
+      <span class="price"><%= number_to_currency(product.price) %></span>
+    </div>
+  </div>
+<% end %>
+
+<div > number_to_currency(9987.23) = <%= number_to_currency(9987.23) %> </div>
+<div > number_to_currency(1234567890.98) = <%= number_to_currency(1234567890.98) %> </div>
+<div > number_to_currency(1234567890.3499, precision:3) = <%= number_to_currency(1234567890.3499, precision:3) %> </div>
+
+<div > number_to_currency(-1234567890.50, negative_format: "(%u%n)")  = <%= number_to_currency(-1234567890.50, negative_format: "(%u%n)")  %> </div>
+<div > number_to_currency(1234567890.50, unit: "CC$", separator: ",", delimiter: "", format: "%n %u")
+		= <%= number_to_currency(1234567890.50, unit: "CC$", separator: ",", delimiter: "", format: "%n %u") %> </div>
+
+<%
+=begin %>
+Throws an error
+<div > number_to_currency("998x", raise: true) = <%= #number_to_currency("998x", raise: true) %> </div>
+
+<%
+=end %>

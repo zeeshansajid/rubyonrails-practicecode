@@ -1,0 +1,48 @@
+<h2>HELLO FROM RAILS</h2>
+
+<p>
+Time to say
+<%= link_to "Goodbye", say_goodbye_path %> !!
+</p>
+
+
+<div>
+<h2>Home work 3</h2>
+
+  <div> Addition: 3 + 5 = <%= 3+5 %>  </div>
+  <div> <% test=6+5 %>    Addition: 6 + 5 = <%= test %>  </div>
+  <div> Subtraction: 24 - 11 = <%= 24-11 %> </div>
+
+  <div> BODMAS: (24-11) * ( (88/11) - (4+2)) = <%= (24-11) * ( (88/11) - (4+2)) %> </div>
+
+  <br />
+  <div> Concatenation: of two strings (<%= "cow" + " boy" + " jack" %>) </div>
+
+  <div> Concatenation: = <%= 'Zeeshan\'s' +" "+ "Homework !!!" %> </div>
+  <br />
+
+  <div> Time now in UTC : <%= Time.now.utc %> </div>
+  <div> Time + 1 hour in UTC : <%= 1.hour.from_now %> </div>
+
+  <br />
+  <div> Local Time now: <%= Time.now.localtime %> </div>
+  <div> Local Time in 1 hour: <%= 1.hour.from_now.localtime %> </div>
+
+  <div> Time in 1 hour: <%= 1.hour.from_now.localtime %> </div>
+  <div> Time 4 hour ago: <%= 4.hour.ago.localtime %> </div>
+  <div> Time 15 mins ago : <%= 15.minutes.ago.localtime %> </div>
+  <br />
+
+  <div> Time Now from Controller <%= @timenow %></div>
+
+  <h2>List of files in my current directory.</h2>
+  <ul>
+    <% for file in @files %>
+    <li>
+      file name is: <%= file %>
+    </li>
+    <% end %>
+  </ul>
+
+
+</div>
