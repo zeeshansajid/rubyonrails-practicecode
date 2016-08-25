@@ -9,7 +9,7 @@
 class LineItem < ActiveRecord::Base
   belongs_to :product
   belongs_to :cart
-  belongs_to :order
+ # belongs_to :order
  # has_many :orders, :through => :line_items
 
   def total_price
