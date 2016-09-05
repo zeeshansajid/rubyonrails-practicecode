@@ -1,0 +1,106 @@
+<section id="singleposts">
+<div class="content animate-panel content-boxed">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="hpanel blog-article-box">
+          <div class="panel-heading">              
+            <h4><%= @post.title %></h4>
+            <div class="text-muted small"> Created by: <span class="font-bold"><%= @post.user.name %></span> <%= @post.created_at.to_time.strftime('%B %e at %l:%M %p') %> </div>
+          </div>
+          <div class="panel-body">
+          <% if @post.image.exists? %>
+
+                <%= image_tag @post.image.url, class:"pull-left img-responsive m-t-md" %>
+                <% end %>
+                  <%= raw @post.body %>
+          </div>
+          <div class="panel-footer"> 
+            <span class="pull-right"> 
+                <i class="fa fa-comments-o"> </i> 
+                    <%= pluralize(@post.comments.length, 'comment')  %> 
+            </span> 
+                <i class="fa fa-eye"> </i> 
+                    <%= pluralize(@views_count, 'view')  %>
+           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="content animate-panel content-boxed">
+  <div class="row">
+    <div class="col-md-12">
+        <div class="hpanel">
+                <div data-delay="1" data-child="vertical-timeline-block" class="v-timeline vertical-container animate-panel">
+
+                  <% @post.comments.each do |comment| %>
+
+                    <div class="vertical-timeline-block" style="">
+                        <div class="vertical-timeline-icon navy-bg">
+                            <i class="fa fa-bullhorn"></i>
+                        </div>
+                        <div class="vertical-timeline-content">
+                            <div class="p-sm">
+                                <span class="vertical-date pull-right"> <small>
+                                <%= comment.created_at.to_time.strftime('%B %e at %l:%M %p') %> 
+                                </small> </span>
+
+                                <h2> <%= comment.name %> (<%= comment.email %>) </h2>
+                                <p><%= comment.body %></p>
+                            </div>
+                        </div>
+                    </div>
+
+                <% end %>
+
+                </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="content animate-panel content-boxed">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="hpanel blog-article-box">
+          <div class="panel-heading">              
+            <h4>Add a Comment</h4>
+          </div>
+          <div class="panel-body">
+
+              <%= render 'partials/admin_notices' %>
+
+              <%= form_for [@post, @post.comments.build] do |f| %>
+
+              <div class="form-group col-md-4">
+                  <%= f.label :name %>
+                  <%= f.text_field :name, class:'form-control' %>
+              </div>
+
+              <div class="form-group col-md-4">
+                  <%= f.label :email %>
+                  <%= f.text_field :email, class:'form-control' %>
+              </div>
+
+              <div class="form-group col-md-12">
+                  <%= f.label :body %>
+                  <%= f.text_area :body, class:'form-control' %>
+              </div>
+
+              <div class="hr-line-dashed"></div>
+              <div class="form-group">
+                  <div class="col-sm-8 col-sm-offset-2">
+                      <%= f.submit "Submit", class: "btn btn-primary" %>
+                  </div>
+              </div>
+
+              <% end %>
+
+                </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+</section>
+

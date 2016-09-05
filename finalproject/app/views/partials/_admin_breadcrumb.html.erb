@@ -1,0 +1,42 @@
+<div class="normalheader transition animated fadeIn">
+    <div class="hpanel">
+        <div class="panel-body">
+            <a class="small-header-action" href="">
+                <div class="clip-header">
+                    <i class="fa fa-arrow-up"></i>
+                </div>
+            </a>
+            <h2 class="font-light m-b-xs">
+                <%= @breadcrumb_title %>
+            </h2>
+
+
+<% if params[:controller] == 'admin/posts' %>
+            <%= link_to "<i class='fa fa-plus'></i> Create New".html_safe, new_admin_post_path, class:'btn btn-sm btn-success pull-right' %>
+
+<% elsif params[:controller] == 'admin/categories' %>
+
+            <%= link_to "<i class='fa fa-plus'></i> Create New".html_safe, new_admin_category_path, class:'btn btn-sm btn-success pull-right' %>
+
+<% elsif params[:controller] == 'admin/users' %>
+            <%= link_to "<i class='fa fa-plus'></i> Create New".html_safe, new_admin_user_path, class:'btn btn-sm btn-success pull-right' %>
+
+<% end %>
+
+            <div id="hbreadcrumb" class="m-t-lg">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><a href="#">Administration</a></li>
+                    <li>
+                        <span><%= @breadcrumb_title %></span>
+                    </li>
+                    <li class="active">
+                        <span> <%= @breadcrumb_action %></span>
+                    </li>
+
+                </ol>
+            </div>
+
+        </div>
+    </div>
+</div>
+

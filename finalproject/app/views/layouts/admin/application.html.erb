@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Zeeshan Sajid's Blog</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  </head>
+
+<body class="fixed-navbar fixed-sidebar">
+
+<!--[if lt IE 7]>
+<p class="alert alert-danger">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<!-- Header -->
+<div id="header">
+    <div class="color-line">
+    </div>
+    <div id="logo" class="light-version">
+        <span>Site 
+     Admin</span></div>
+    <nav role="navigation">
+        <div class="header-link hide-menu"><i class="fa fa-bars"></i></div>
+        <div class="small-logo">
+            <span class="text-primary">Zeeshan's Blog</span>
+        </div>
+
+        <%= render 'partials/admin_search' %>
+
+        <div class="navbar-right">
+            <ul class="nav navbar-nav no-borders">
+                <li class="dropdown" style="margin-top:16px">
+                    <% if current_user %>
+                     Logged in as <%= current_user.email %> 
+                    <% end %>
+                </li>
+                <li class="dropdown">
+                    <% if current_user %>
+                    <%= link_to "<i class='pe-7s-upload pe-rotate-90'></i>".html_safe, admin_logout_path, class:"pull-right" %>
+                    <% end %>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<!-- Navigation -->
+<aside id="menu">
+    <div id="navigation">
+        <ul class="nav" id="side-menu">
+
+            <li class="<%= params[:controller] == 'admin/posts' ? 'active' : '' %>">
+                <%= link_to "Posts", admin_posts_path %>
+            </li>
+            <li class="<%= params[:controller] == 'admin/categories' ? 'active' : '' %>">
+                <%= link_to "Categories", admin_categories_path %>
+            </li>
+            <li class="<%= params[:controller] == 'admin/users' ? 'active' : '' %>">
+                <%= link_to "Users", admin_users_path %>
+            </li>
+        </ul>
+    </div>
+</aside>
+
+<%= yield %>
+
+<%= render 'partials/admin_footer' %>
+ 
+  </body>
+</html>

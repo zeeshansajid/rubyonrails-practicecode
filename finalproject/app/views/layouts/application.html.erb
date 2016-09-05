@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Zeeshan Sajid's Blog</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body class="landing-page">
+
+<!--[if lt IE 7]>
+<p class="alert alert-danger">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+        <%= link_to "Zeeshan Sajid's Blog", root_path, class:"navbar-brand" %>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><%= link_to "Home", root_path %></li>
+                <li><%= link_to "About", about_path %></li>
+                <li><%= link_to "Contact", contact_path %></li>
+            </ul>
+        </div>
+    </div>
+</nav> 
+
+<% if @page_name == 'home' %>
+<header id="page-top">
+    <div class="container">
+        <div class="heading">
+    </div>
+</header>
+<% end %>
+
+<%= render 'partials/admin_notices' %>
+
+<%= yield %>
+
+<%= render 'partials/footer' %>
+
+
+
+<!-- Vendor scripts -->
+<script src="vendor/jquery/dist/jquery.min.js"></script>
+<script src="vendor/jquery-ui/jquery-ui.min.js"></script>
+<script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+ 
+  </body>
+</html>
