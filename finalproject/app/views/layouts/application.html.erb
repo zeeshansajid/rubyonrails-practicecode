@@ -31,11 +31,43 @@
 </nav> 
 
 <% if @page_name == 'home' %>
+
 <header id="page-top">
     <div class="container">
         <div class="heading">
+            <h1>
+                Welcome to Zeeshan's Blog
+          </h1>
+            <span>I like to travel and now <br/> I am using this blog to share my experiences</span>
+            <p class="small">
+                Here are all the places <br/> I planned to visit during the year 2016.
+            </p>
+                <%= link_to "Learn More", about_path, class: "btn btn-success btn-sm" %>
+        </div>
+        <div class="heading-image animate-panel" data-child="img-animate" data-effect="fadeInRight">
+            <p class="small">Here is the highlight of some amazing views and experiences.</p>
+            <img class="img-animate" src="images/landing/c1.jpg">
+            <img class="img-animate" src="images/landing/c2.jpg">
+            <img class="img-animate" src="images/landing/c3.jpg">
+            <img class="img-animate" src="images/landing/c4.jpg">
+            <br/>
+            <img class="img-animate" src="images/landing/c5.jpg">
+            <img class="img-animate" src="images/landing/c6.jpg">
+            <img class="img-animate" src="images/landing/c7.jpg">
+            <img class="img-animate" src="images/landing/c8.jpg">
+        </div>
     </div>
 </header>
+
+
+
+
+
+
+
+
+
+
 <% end %>
 
 <%= render 'partials/admin_notices' %>
