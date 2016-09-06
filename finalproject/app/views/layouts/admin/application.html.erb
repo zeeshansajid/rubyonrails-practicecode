@@ -25,18 +25,17 @@
     <div class="color-line">
     </div>
     <div id="logo" class="light-version">
-        <span>Site 
-     Admin</span></div>
+        <span>Blog Administration </span></div>
     <nav role="navigation">
         <div class="header-link hide-menu"><i class="fa fa-bars"></i></div>
-        <div class="small-logo">
-            <span class="text-primary">Zeeshan's Blog</span>
-        </div>
 
         <%= render 'partials/admin_search' %>
 
         <div class="navbar-right">
             <ul class="nav navbar-nav no-borders">
+
+                
+
                 <li class="dropdown" style="margin-top:16px">
                     <% if current_user %>
                      Logged in as <%= current_user.email %> 
@@ -66,6 +65,12 @@
             <li class="<%= params[:controller] == 'admin/users' ? 'active' : '' %>">
                 <%= link_to "Users", admin_users_path %>
             </li>
+            <li >
+                <%= link_to "Go to Website", root_path, class:"text-info" %>
+            </li>
+
+
+
         </ul>
     </div>
 </aside>
