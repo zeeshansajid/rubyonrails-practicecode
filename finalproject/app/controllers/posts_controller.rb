@@ -5,7 +5,6 @@ class PostsController < ApplicationController
   	@categories = Category.all
   	@comments_count = Comment.all.count()
   	@views_count = User.all.count()
-
   end
 
   def show

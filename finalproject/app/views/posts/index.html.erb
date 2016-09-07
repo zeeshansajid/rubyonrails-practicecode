@@ -1,5 +1,8 @@
 <section id="allposts" style="padding-left:10%; padding-right:10%">
-    <div class="content animate-panel">
+
+  <%= render 'partials/categorieslist' %>
+
+<div class="content animate-panel">
 
 <% if @posts.exists? %>
     <% if @posts.each_slice(4) do |post| %>

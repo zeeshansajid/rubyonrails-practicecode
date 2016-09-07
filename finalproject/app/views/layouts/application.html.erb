@@ -30,7 +30,7 @@
     </div>
 </nav> 
 
-<% if @page_name == 'home' %>
+<% if params[:controller] == 'posts' %>
 
 <header id="page-top">
     <div class="container">
@@ -59,16 +59,8 @@
     </div>
 </header>
 
-
-
-
-
-
-
-
-
-
 <% end %>
+
 
 <%= render 'partials/admin_notices' %>
 
