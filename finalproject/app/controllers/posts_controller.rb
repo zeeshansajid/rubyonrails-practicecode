@@ -8,6 +8,7 @@ class PostsController < ApplicationController
   end
 
   def show
+     @page_name = "singlepost"
   	@post 		= Post.find(params[:id])
   	@categories = Category.all
   	@comment 	= Comment.new
